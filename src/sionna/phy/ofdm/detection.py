@@ -135,12 +135,6 @@ class OFDMDetector(Block):
         y_dt = tf.transpose(y_eff, [0, 1, 3, 4, 2])
         y_dt = tf.cast(y_dt, self.cdtype)
 
-        # Transpose y_eff to put num_rx_ant last. New shape:
-        # [batch_size, num_rx, num_ofdm_symbols,...
-        #  ..., num_effective_subcarriers, num_rx_ant]
-        y_dt = tf.transpose(y_eff, [0, 1, 3, 4, 2])
-        y_dt = tf.cast(y_dt, self.cdtype)
-
         ##############################################
         ### Prepare the err_var for MIMO detection ###
         ##############################################
